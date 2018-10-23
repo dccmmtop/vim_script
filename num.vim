@@ -5,8 +5,8 @@ ruby << EOF
     count = 0
     cb = Vim::Buffer.current
     line = cb.line
-    upline_num = cb.line_number - 1
-    if upline_num >= 1 && cb[upline_num] =~ /^\d/
+    previousLine = cb.line_number - 1
+    if previousLine >= 1 && cb[previousLine] =~ /^\d+/
       count = $&.to_i
     end
     cb.line = "#{count + 1}. #{line}"
