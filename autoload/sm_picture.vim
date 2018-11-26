@@ -7,9 +7,10 @@ class SM
 
   def get_current_line
     s = @buffer.line       # gets the current line
+    name = s.split("/").last
     real_link = `sm_picture #{s}`
     real_link = real_link.split(/\n/).last
-    Vim::Buffer.current.line = "![](#{real_link})"     # sets the current line number
+    Vim::Buffer.current.line = "![#{name}](#{real_link})"     # sets the current line number
   end
 end
 gem = SM.new
