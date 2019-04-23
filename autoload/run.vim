@@ -13,9 +13,15 @@ ruby << EOF
       exec = "python"
     when "rb"
       exec = "ruby"
+    when "c"
+      exec = "c"
     else
     end
-    system("nohup terminator -e '#{exec} #{file_name}  && read && exit; zsh' > /dev/null 2>&1 ")
+    if exec == "c"
+      system("nohup terminator -e 'gcc  #{file_name} -o _main.o && ./_main.o  && read && exit; zsh' > /dev/null 2>&1 ")
+    else
+      system("nohup terminator -e '#{exec} #{file_name}  && read && exit; zsh' > /dev/null 2>&1 ")
+    end
   end
 run()
 EOF
