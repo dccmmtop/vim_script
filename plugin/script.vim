@@ -4,3 +4,4 @@ command! -range=% AddNum :<line1>,<line2> cal num#add_num()
 " noremap <leader>qn :cal qiniu#get_picture_url()<cr><CR>
 noremap <leader>sm :cal sm_picture#get_picture_url()<cr><Cr>
 noremap <leader>cm :cal Erb#erbcomment()<cr><Cr>
+noremap <leader>e :cal run#run_file()<cr><Cr>
